@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM - Introduction</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #ffffff
+        }
+    </style>
+</head>
+<!-- querySelector -> it is similar to getElementId or className but it uses similar syntax to css selectors
+
+    Syntax -> document.querySelector('#idName') / document.querySelector('.className') /
+    document.querySelector('tag') -> this will give us the first element that uses the given tag
+    
+    Similar to getElement we can also store the querySelector in an variable and further apply the querySelector
+
+    varName = document.querySelector('#idName')
+
+    varName.querySelector('#idName')
+
+-->
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">DOM - Introduction</h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h2>Lorem, ipsum dolor sit amet consectetur adipisicing.</h2>
+        <h2>Lorem, ipsum dolor.</h2>
+        <p id="content">We're going to learn DOM Manipulation <span style="display: none;">test</span></p>
+
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ul>
+    </div>
+</body>
+</html>

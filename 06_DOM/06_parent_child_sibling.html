@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM - Introduction</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #ffffff
+        }
+    </style>
+</head>
+<!-- 
+
+-->
+<body class="bg-black">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent') // target the element with class = "parent"
+    // console.log(parent); // prints the parent element
+    // console.log(parent.children); // this gives an HTMLCollection of child elements
+
+    // for (let i = 0; i < parent.children.length; i++) {
+    //     console.log(parent.children[i].innerHTML);     
+    // }
+
+    // there are more methods such as firstElementChild, lastElementChild etc
+
+    // console.log(parent.firstElementChild); // prints first child of the element
+    // console.log(parent.lastElementChild); // prints last child of the element
+
+    const days = document.querySelector('.day') // selects first element with day class
+
+    // console.log(days.parentElement);
+    // console.log(days.nextElementSibling);
+
+    // parent.childNodes -> refer Chai aur Js video How to create new elements in DOM from 13:15
+    // it is a complex tree structure of childNodes and gives us a NodeList of childNodes of an elements 
+    // that also includes the textNode(line khatam hone ke baad wala enter)  as well as comments 
+    // bcz of that parent has 9 childNode
+
+    console.log(parent.childNodes); // gives an NodeList(9)
+</script>
+</html>

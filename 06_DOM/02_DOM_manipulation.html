@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM - Introduction</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #ffffff
+        }
+    </style>
+</head>
+<!-- For DOM Manipulation go to Browser Console -->
+
+<!-- Target an Element ->  (1) getElementById(), (2) getElementByClassName(), (3) getElementByTagName() -->
+
+<!-- Syntax -> document.getElementById('elementID')
+    
+    By targetting an element we can also access other methods like id, className, getAttribute('attName'), 
+    setAttribute('attributeName', 'attValues') etc.
+
+    -> className -> document.getElementById('elementID').className
+
+    -> id -> document.getElementById('elementID').id
+
+    -> getAttribute -> document.getElementById('elementID').getAttribute('attName')
+
+    -> setAttribute -> document.getElementById('elementID').setAttribute('attName', 'attVal1 attVal2 ...')
+
+    Note -> setAttribute() overwrites the previous attribute values
+            example -> eleClass(c1, c2, c3) -- setAtt(c4) -> eleClass(c4)
+    
+    -> we can also store element value in a variable and use it instead of long syntax
+    const varName = document.getElementById('elementID')
+    varName.style.backgroundColor = 'green'
+    varName.style.borderRadius = '15px'
+    varName.style.padding = '15px'
+
+-->
+
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">DOM - Introduction</h1>
+        <p>We're going to learn DOM Manipulation</p>
+    </div>
+</body>
+</html>

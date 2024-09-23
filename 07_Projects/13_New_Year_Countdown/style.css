@@ -1,0 +1,83 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap);
+
+*{
+    box-sizing: border-box;
+    color: #fff;
+    overflow: hidden;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    font-family: "Poppins" , sans-serif;
+    z-index: 0;
+}
+
+.bg-img {
+    position: fixed;
+    background-image: url(./img/Fern.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 100%;
+    filter: blur(1.5px);
+}
+
+.shadow {
+    text-shadow: 1px 2px 2px black;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: normal;
+    margin: -150px 0 40px;
+}
+
+.countdown {
+    position: relative;
+    display: flex;
+    transform: scale(2);
+}
+
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px;
+}
+
+.time h2 {
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 1;
+    margin: 0 0 5px;
+}
+
+@media (max-width: 500px) {
+    h1 {
+        font-size: 45px;
+    }
+    .time {
+        margin: 5px;
+    }
+    .time h2 {
+        font-size: 12px;
+    }
+    .time small {
+        font-size: 10px;
+    }
+}

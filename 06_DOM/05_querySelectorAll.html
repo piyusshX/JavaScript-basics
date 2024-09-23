@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM - Introduction</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #ffffff
+        }
+    </style>
+</head>
+<!-- querySelectorAll -> it is similar querySelector but instead of returning only first item it returns all
+    the elements in an NodeList.
+
+    NodeList -> it is similar to array but it is not an array.
+
+    Syntax -> document.querySelectorAll('tag') -> gives an NodeList containing all elements of given tag
+
+    varName = document.querySelector('tag')
+
+    <!----------------------------------------- accessing elements -------------------------------------.->
+
+    varName[0].style.color = "aqua"
+
+    We can also use forEach on NodeList 
+
+    varName.forEach( function (ele, idx, arr) { function defination } )
+
+-->
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">DOM - Introduction</h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <h2>Lorem, ipsum dolor sit amet consectetur adipisicing.</h2>
+        <h2>Lorem, ipsum dolor.</h2>
+        <p id="content">We're going to learn DOM Manipulation <span style="display: none;">test</span></p>
+
+        <ul>
+            <li>one</li>
+            <li>two</li>
+            <li>three</li>
+        </ul>
+    </div>
+</body>
+</html>

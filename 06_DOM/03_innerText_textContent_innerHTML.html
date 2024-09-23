@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM - Introduction</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #ffffff
+        }
+    </style>
+</head>
+<!-- const varName = document.getElementById('elementID')
+
+    Syntax -> varName.innerText / varName.textContent / varName.innerHTML
+
+    innerText, textContent and innerHTML -> all of them give us the content inside the targetted element, but 
+    what is the difference between them ?
+
+    innerText -> gives only the text that is actually visible.
+
+    textContent -> gives all the text either visible or not(text which is hidden by any CSS property).
+
+    innerHTML -> it also gives us all the text content along with the inner HTML tag in the targetted element.
+
+    we can also modify the content with these
+
+    like -> varName.innerText = "new content"
+-->
+<body class="bg-black">
+    <div>
+        <h1 id="title" class="heading">DOM - Introduction</h1>
+        <p id="content">We're going to learn DOM Manipulation <span style="display: none;">test</span></p>
+    </div>
+</body>
+</html>

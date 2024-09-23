@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM - Introduction</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #ffffff
+        }
+    </style>
+</head>
+<body class="bg-black">
+    
+</body>
+<script>
+//  To create an new element we can use createElement("tag") method and add attributes to it
+    const newDiv = document.createElement('div')
+    console.log(newDiv);
+    newDiv.className = "c1 c2"
+    newDiv.id = Math.round(Math.random() * 11 + 1)
+    newDiv.setAttribute("title", "i dont know")
+    newDiv.style.backgroundColor = "green"
+    newDiv.style.padding = "12px"
+    // newDiv.innerText = "Creating New Element in DOM" // timeConsuming bcz of whole tree traversal
+    const newText = document.createTextNode("Creating New Element in DOM") // optimized
+    newDiv.appendChild(newText)
+
+//  Now to show the element on the webpage we just need to append the element to the document
+    document.body.appendChild(newDiv)
+</script>
+</html>

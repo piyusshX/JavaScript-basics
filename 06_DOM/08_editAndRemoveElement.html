@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Introduction</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #ffffff
+        }
+    </style>
+</head>
+<body class="bg-black">
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName) {
+        const li = document.createElement('li');
+        li.innerText = `${langName}`;
+        document.querySelector('.language').appendChild(li);
+    }
+    addLanguage("C++"); // iss function innerHTML ke karan browser ko har baar pura tree traverse karna pad 
+    addLanguage("Python"); // raha hai child ko appand karne ke liye jo ki time consuming hai
+
+    // Optimized Method -> Using Appand Child instead of innerHTML 
+
+    function optiAddLanguage(langName) {
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName));
+        document.querySelector('.language').appendChild(li);
+    }
+
+    optiAddLanguage("typeScript")
+
+    // Edit
+
+    // For editing an element we need to target it 
+    const secLang = document.querySelector("li:nth-child(2)") // C++
+    // Now that we have element's refrence we can simply edit it in multiple ways
+
+    // 1 -> changing its innerHTML/textContent both are some what similar -> simple but not optimized approach
+    secLang.innerHTML = "C#" // innerHTML is better than textContent
+
+    const thirdLang = document.querySelector("li:nth-child(3)")
+    thirdLang.outerHTML = '<li>CSS</li>'; // also do it like this
+
+    // 2 -> creating an new element and replace it with previous one -> optimized approach
+    const newli = document.createElement('li');
+    newli.appendChild(document.createTextNode('HTML - Not A Programming Language'))
+    secLang.replaceWith(newli)
+
+
+    // Remove -> It is very easy we just need the refrence of the element which had to be removed
+
+    const lastLang = document.querySelector("li:last-child"); // typeScript
+    lastLang.remove(); // typeScript is removed
+
+</script>
+</html>
