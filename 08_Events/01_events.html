@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <!-- Approch 1 -> inline JavaScript (bad approch) in example below as we can see that we have
+            added an onclick event with inline javascript -->
+            <!-- <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop" onclick="alert('photoshop')"></li> -->
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+    // Approch 2 -> Good Approch
+    // document.getElementById('owl').onclick = function () {
+    //     alert("it's an owl");
+    // }
+
+    // Approch 3 -> using event Listeners (Best Approch)
+
+    // Event Listener -> targetElement.addEventListener('eventName', function(e){}, useCapture)
+    // useCapture -> it is used to determine/ set Event Propogating. its default value is false.
+
+    document.getElementById('owl').addEventListener('click', function (e) {
+        alert("it's an owl");
+    }, false)
+
+    // Some of the browser events to study about :-
+    // type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY, altkey, ctrlkey, shiftkey, keyCode
+
+
+    // Event Propogating -> there are two types of event propogations 1) Event Bubbling, 2) Event Capturing
+    // useCapture == false -> eventBubbling , useCapture == true -> eventCapturing
+
+
+
+    // Event Bubbling -> Script tracks the element from inside to outside in simple words
+    // bottom to up / inside to outside / ander se bahar
+
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log("clicked inside ul");
+    // }, false)
+
+    // document.getElementById('photoshop').addEventListener('click', function (e) {
+    //     console.log("photoshop clicked");
+    // }, false)
+
+    // output -> photoshop clicked then clicked inside ul
+
+    // In above example when we clicked on photoshop image -> "photoshop clicked" got executed first and then
+    // "clicked inside ul" got executed beacuse of Event Bubbling.
+
+
+
+    // Event Capturing -> Script tracks the element from outside to inside in simple words
+    // top to bottom / outside to inside / bahar se ander
+
+    // document.getElementById('images').addEventListener('click', function (e) {
+    //     console.log("clicked inside ul");
+    // }, true)
+
+    // document.getElementById('japan').addEventListener('click', function (e) {
+    //     console.log("japan clicked");
+    // }, true)
+
+    // output ->  clicked inside ul then photoshop clicked
+
+    // In above example when we clicked on photoshop image -> "clicked inside ul" got executed first and then
+    // "photoshop clicked" got executed beacuse of Event Capturing.
+
+
+    // stopPropogation() -> it stops the propogation of an element
+    document.getElementById('river').addEventListener('click', function (e) {
+        console.log("river clicked");
+        e.stopPropagation();
+    }, false)
+
+
+    // preventDefault() -> prevents default actions
+    document.getElementById("google").addEventListener('click', function(e){
+        console.log("google clicked");
+        e.preventDefault()
+    }, false)
+
+</script>
+</html>

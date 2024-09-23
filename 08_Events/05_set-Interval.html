@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Kimetsu No Yaiba</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setInterval -> It is also an asynchronous function, which executes a function after a set interval of
+    // time repeatedly.
+    // KnowMore -> https://developer.mozilla.org/en-US/docs/Web/API/setInterval
+    // Syntax -> setInterval(fun, delay), setInterval(fun, delay, arg1, arg2,...)
+
+    let engInterval; // had to declare outside bcz of scope problem
+    let japInterval; 
+
+    const startChangingName = function () {
+        engInterval = setInterval(engName, 1000)
+        japInterval = setInterval(japName, 2000)
+
+        function engName() {
+            document.querySelector('h1').innerHTML = "Demon Slayer";
+        }
+        function japName() {
+            document.querySelector('h1').innerHTML = "Kimetsu No Yaiba";
+        }
+    }
+    const stopChangingName = function () {
+        clearInterval(engInterval);
+        clearInterval(japInterval);
+    }
+
+    document.querySelector("#start").addEventListener('click', startChangingName, false)
+    document.querySelector("#stop").addEventListener('click', stopChangingName, false)
+
+</script>
+</html>

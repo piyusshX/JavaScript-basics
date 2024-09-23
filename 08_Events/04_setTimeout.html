@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async JS Functions -> setTimeout</title>
+</head>
+<body>
+    <h1>Kimetsu no Yaiba</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    // setTimeout -> It is an asynchronous function, which allows a function to execute after a set amount of
+    // time.
+    
+    // Syntax -> setTimeout(function, "delay");  -> we can either write an function or use refrence of a function
+    // delay -> time in milisec
+
+    // setTimeout(function () {
+    //     console.log("Demon Slayer");
+    // }, "2000")
+
+    const watch = function () {
+        console.log("Demon Slayer");
+    }
+
+    setTimeout(watch, "2000");
+
+    const changeText = function () {
+        document.querySelector("h1").innerHTML = "Demon Slayer"
+    }
+
+    // clearTimeout -> this method cancels a timeout previously established by calling setTimeout(). We need 
+    // to provide the refrence of the specific timeout which needs to be stopped.
+
+    // Syntax -> clearTimeout(refrence_Of_setTimeout_Function);
+
+
+    const dontChange = setTimeout(changeText, "2000");
+
+    document.querySelector("#stop").addEventListener('click', function (e) {
+        clearTimeout(dontChange); // if we click on the stop button before 2sec then innerHTML will not change
+    }, false)
+
+</script>
+</html>

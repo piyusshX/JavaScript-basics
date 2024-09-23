@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request</title>
+    <style>
+        .container{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .btn{
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            width: 200px;
+            justify-content: space-around;
+        }
+        .card{
+            box-sizing: border-box;
+            height: 300px;
+            width: 500px;
+            border-radius: 10px;
+            display: flex;
+            padding: 20px;
+            color: black;
+            align-items: center;
+        }
+        img{
+            display: none;
+            object-fit: cover; 
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body style="background-color: #414141;">
+    <div class="container">
+        <div class="card" style="background-color: aliceblue;">
+            <img src="#" id="image" height="250px" width="230px">
+            <div>
+                <h3 id="name"></h3>
+                <h3 id="follower"></h3>
+                <h3 id="twitter"></h3>
+            </div>
+        </div>
+        <div class="btn">
+            <button id="info">Get Info</button>
+            <button id="erase">Erase Info</button>
+        </div>
+    </div>
+</body>
+<script>
+    const info = document.getElementById('info');
+    const erase = document.getElementById('erase');
+    const follow = document.getElementById('follower');
+    const username = document.getElementById('name');
+    const twitter = document.getElementById('twitter');
+    const image = document.getElementById('image');
+
+    const cardName = "Name : "
+    const cardFollower = "Followers : "
+    const cardTwitter = "Twitter : "
+    
+    const requestUrl = 'https://api.github.com/users/hiteshchoudhary'
+    const xhr = new XMLHttpRequest();
+
+    const getInfo = function () {
+        image.style.display = "block";
+        xhr.open('GET', requestUrl)
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4){
+                const data = JSON.parse(this.responseText)
+                image.src = (data.avatar_url);
+                console.log(typeof data);
+                username.innerHTML = cardName + data.name;
+                follow.innerHTML = cardFollower + data.followers;
+                twitter.innerHTML = cardTwitter + data.twitter_username;
+            }
+        }
+        xhr.send();
+    }
+
+    const removeInfo = function () {
+        image.style.display = "none";
+        image.src = "#";
+        username.innerHTML = "";
+        follow.innerHTML = "";
+        twitter.innerHTML = "";
+    }
+
+    info.addEventListener('click', getInfo);
+    erase.addEventListener('click', removeInfo);
+</script>
+</html>

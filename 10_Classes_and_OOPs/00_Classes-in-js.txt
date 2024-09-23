@@ -1,0 +1,35 @@
+JavaScript is Primarily a Prototype-based Language and it do have classes and they were introduced
+in ES-6, but classes are primarily syntactic sugar over its existing prototype inheritance mechanisms.
+
+In Otherwords it provides a more familiar syntax for developer coming from class-based languages
+such as Java or C++, but under the hood it works somewhat differently.
+
+https://www.reddit.com/user/Piyush255/comments/1dsyzeg/prototypal_inheritance_in_javascript/
+
+JavaScript me har cheez ek tarike se Object consider kiya jata hai or rather ki har cheez Objects se 
+derive hoti ha meaning they inherite Object's properties -> Array, String and also Functions -> Object
+
+https://youtu.be/uMI5cNeHTOc?si=Bsmd_SX_Ei336-kY
+
+Are Functions really consider to be an Object or derived from Object -> See in 03_Objects_newKeyword.js
+
+
+<-------------------------------------                new                  --------------------------------------->
+
+Here's what happens behind the scenes when the new keyword is used:
+
+1 -> A new object is created: The new keyword initiates the creation of a new JavaScript object.
+
+2 -> A prototype is linked: The newly created object gets linked to the prototype property of the constructor 
+function. This means that it has access to properties and methods defined on the constructor's prototype.
+
+3 -> The constructor is called: The constructor function is called with the specified arguments and this is 
+bound to the newly created object. If no explicit return value is specified from the constructor, JavaScript 
+assumes this, the newly created object, to be the intended return value.
+
+4 -> The new object is returned: After the constructor function has been called, if it doesn't return a 
+non-primitive value (object, array, function, etc.), the newly created object is returned.
+
+<------------------------------------------------------------------------------------------------------------->
+
+Prototypal Inheritance -> 05_inheritance_proto.js
